@@ -81,16 +81,7 @@ if(xmlHttp.readyState === 4){
 * Generator 函数是 ES6 提供的一种异步编程解决方案
 * 是一个状态机，封装了多个内部状态
 * 两个明显特点：一是，function关键字与函数名之间有一个星号；二是，函数体内部使用yield表达式，定义不同的内部状态
------
-```javascript
-function* helloWorldGenerator() {
-  yield 'hello';
-  yield 'world';
-  return 'ending';
-}
-
-var hw = helloWorldGenerator();
-```
+* 协程coroutine（多个线程互相协作，完成异步任务）
 
 [slide style="background-image:url('/img/bg2.png')" data-transition="horizontal3d"]
 ## 谢谢大家～_～

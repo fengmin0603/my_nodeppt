@@ -3,12 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="42e6bbcc-24cb-4d47-b9b8-1ef06a01c31d" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/1.txt" afterPath="$PROJECT_DIR$/index.txt" />
-      <change beforePath="$PROJECT_DIR$/2.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/async.js" afterPath="$PROJECT_DIR$/async.js" />
       <change beforePath="$PROJECT_DIR$/async.md" afterPath="$PROJECT_DIR$/async.md" />
-      <change beforePath="$PROJECT_DIR$/promise.js" afterPath="$PROJECT_DIR$/promise.js" />
-      <change beforePath="$PROJECT_DIR$/readStream.js" afterPath="$PROJECT_DIR$/readStream.js" />
+      <change beforePath="$PROJECT_DIR$/generator.js" afterPath="$PROJECT_DIR$/generator.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -26,8 +22,8 @@
         <entry file="file://$PROJECT_DIR$/async.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="230">
-                <caret line="82" column="14" lean-forward="true" selection-start-line="82" selection-start-column="14" selection-end-line="82" selection-end-column="14" />
+              <first_editor relative-caret-position="245">
+                <caret line="82" column="58" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
                 <folding />
               </first_editor>
               <second_editor>
@@ -40,8 +36,8 @@
       <file leaf-file-name="generator.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/generator.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="321">
+              <caret line="22" column="9" lean-forward="false" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -70,8 +66,8 @@
       <file leaf-file-name="async.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/async.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+            <state relative-caret-position="374">
+              <caret line="17" column="26" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -81,7 +77,7 @@
         <entry file="file://$PROJECT_DIR$/index.txt">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="15" lean-forward="true" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
+              <caret line="0" column="15" lean-forward="false" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
               <folding />
             </state>
           </provider>
@@ -105,15 +101,15 @@
         <option value="$PROJECT_DIR$/1.txt.js" />
         <option value="$PROJECT_DIR$/2.txt" />
         <option value="$PROJECT_DIR$/1.txt" />
-        <option value="$PROJECT_DIR$/generator.js" />
         <option value="$PROJECT_DIR$/index.txt" />
         <option value="$PROJECT_DIR$/readStream.js" />
         <option value="$PROJECT_DIR$/ajax.js" />
         <option value="$PROJECT_DIR$/promise.js" />
         <option value="$PROJECT_DIR$/Iterator.js" />
-        <option value="$PROJECT_DIR$/async.md" />
         <option value="$PROJECT_DIR$/async.js" />
         <option value="$PROJECT_DIR$/readme.txt" />
+        <option value="$PROJECT_DIR$/generator.js" />
+        <option value="$PROJECT_DIR$/async.md" />
       </list>
     </option>
   </component>
@@ -128,6 +124,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
@@ -203,23 +202,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Node.js.async.js">
+  <component name="RunManager" selected="Node.js.generator.js">
     <configuration name="ajax.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="ajax.js" working-dir="$PROJECT_DIR$" />
     <configuration name="async.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="async.js" working-dir="$PROJECT_DIR$" />
+    <configuration name="generator.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="generator.js" working-dir="$PROJECT_DIR$" />
     <configuration name="promise.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="promise.js" working-dir="$PROJECT_DIR$" />
     <configuration name="readStream.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-js-file="readStream.js" working-dir="$PROJECT_DIR$" />
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Node.js.readStream.js" />
       <item index="1" class="java.lang.String" itemvalue="Node.js.promise.js" />
       <item index="2" class="java.lang.String" itemvalue="Node.js.ajax.js" />
       <item index="3" class="java.lang.String" itemvalue="Node.js.async.js" />
+      <item index="4" class="java.lang.String" itemvalue="Node.js.generator.js" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Node.js.async.js" />
-        <item index="1" class="java.lang.String" itemvalue="Node.js.readStream.js" />
-        <item index="2" class="java.lang.String" itemvalue="Node.js.ajax.js" />
-        <item index="3" class="java.lang.String" itemvalue="Node.js.promise.js" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Node.js.generator.js" />
+        <item index="1" class="java.lang.String" itemvalue="Node.js.async.js" />
+        <item index="2" class="java.lang.String" itemvalue="Node.js.readStream.js" />
+        <item index="3" class="java.lang.String" itemvalue="Node.js.ajax.js" />
+        <item index="4" class="java.lang.String" itemvalue="Node.js.promise.js" />
       </list>
     </recent_temporary>
   </component>
@@ -238,15 +240,16 @@
       <updated>1515333050016</updated>
       <workItem from="1515333052251" duration="232000" />
       <workItem from="1515333300021" duration="2200000" />
-      <workItem from="1515377769493" duration="13722000" />
+      <workItem from="1515377769493" duration="15025000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16154000" />
+    <option name="totallyTimeSpent" value="17457000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="813" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13333334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -254,7 +257,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32928476" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3508772" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24021593" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -395,31 +398,7 @@
     <entry file="file://$PROJECT_DIR$/index.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="15" lean-forward="true" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Iterator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/generator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/async.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="22" column="8" lean-forward="false" selection-start-line="22" selection-start-column="8" selection-end-line="22" selection-end-column="8" />
+          <caret line="0" column="15" lean-forward="false" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
           <folding />
         </state>
       </provider>
@@ -432,11 +411,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Iterator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/async.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="26" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="22" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/generator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="321">
+          <caret line="22" column="9" lean-forward="false" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/async.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="230">
-            <caret line="82" column="14" lean-forward="true" selection-start-line="82" selection-start-column="14" selection-end-line="82" selection-end-column="14" />
+          <first_editor relative-caret-position="245">
+            <caret line="82" column="58" lean-forward="false" selection-start-line="82" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
             <folding />
           </first_editor>
           <second_editor>
