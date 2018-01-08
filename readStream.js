@@ -1,14 +1,27 @@
 
+// File System
 var fs = require('fs');
-
-/*
-var filename = fs.readFileSync('1.txt','utf8');
-var content = fs.readFileSync(filename,'utf8');
-console.log(content);
-*/
-fs.readFile('1.txt','utf8',function(err,data){
-    console.log(data);
-    fs.readFile(data,'utf8',function(err,data){
+function afterRead(err,data){
+    if(err){
+        console.error(err);
+    }else{
         console.log(data);
-    })
-})
+    }
+
+}
+/**
+ * 1.异步方法需要把回调函数传入
+ * 2. 回调函数会在同步方法执行完毕之后才执行异步回调
+ * 3.异步方法不能阻塞主线程，不会影响后续代码的执行
+ */
+fs.readFile('./index.txt','utf8',function(err,data){
+    if(err){
+        console.error(err);
+    }else{
+        console.log(data);
+    }
+});
+var data = fs.readFileSync('./index.txt','utf8');
+console.log(data);
+console.log('b');
+console.log('c');

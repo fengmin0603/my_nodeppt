@@ -18,26 +18,63 @@ date: 2018年1月5日
 [slide style="background-image:url('/img/bg2.png')"]
 
 # 异步 {:&.flexbox.vleft}
-
-* js认为从硬盘上读取文件是一个异步操作
+同步是发起调用后，主线程只能挂起；异步则是发起调用后，主线程可以做其他的事情
+* js认为从硬盘上读取文件是一个异步操作，例如：node的核心模块fs操作文件系统的API，都具有同步和异步两个方法
 ```javascript
-例如：node的核心模块fs操作文件系统的API，都具有同步和异步两个方法
-异步读取 readFile
-同步读取 readFileSync
-异步写入 writeFile
-同步写入 writeFileSync
+fs.readFile('./index.txt','utf8',function(err,data){
+    if(err){console.error(err);}
+    else{console.log(data);}
+});
+var data = fs.readFileSync('./index.txt','utf8');
+console.log('b');console.log('c');
 ```
 * 另外一种是网络请求
+```javascript
+var xmlHttp = new XMLHttpRequest();
+var url = "http://ext-api.info.iii-space.com/api/login_fz"
+xmlHttp.open("post",url+"?workcode=068108",true)
+xmlHttp.send();
+xmlHttp.onreadystatechange= function(){
+};
+if(xmlHttp.readyState === 4){
+    if(xmlHttp.status === 200){
+        var responseText =xmlHttp.responseText;
+    }
+}
+```
 
 [slide style="background-image:url('/img/bg2.png')"]
 
-# 首先介绍一下async函数 {:&.flexbox.vleft}
+# promise对象 {:&.flexbox.vleft}
+异步编程的一种解决方案
+* 有三种状态：pending（进行中）、fulfilled（已成功）和rejected（已失败）
+* 本质上是个有限状态机，状态机根据一定的条件按照特定的顺序进行转换，且过程不可逆
 
-今天的分享可能没有上一期那么具有趣味性，主要是分享一些学习es6的语法糖。所以给大家准备了一些糖果，下面请大家边吃糖边和我一起回顾这些语法糖吧，😊 {:&.flexbox.vleft}
+** 从初始状态到成功：pending->resolve ** <br/>
+** 从初始状态到失败：pending->reject **
+
+[slide style="background-image:url('/img/bg2.png')"]
+
+# promise的api {:&.flexbox.vleft}
+* promise实例上的方法
+    * promise.prototype.then()
+    * promise.prototype.catch()
+* promise构造函数上的方法
+    * promise.all(Array) 返回一个promise，等待参数中所有的promise都处于resolve状态后会触发返回的promise实例的resolve状态
+    * promise.race(Array) 返回一个promise，参数中第一个执行完成的状态决定出发哪个函数
+    * promise.resolve() 立刻返回一个resolve状态的实例
+    * promise.reject() 立刻返回一个reject状态的实例
+
+**
+ promise并不是处理异步最好的方法，比如回调金字塔的问题并没有解决，只是看起来更清晰了。解决异步最好的方法是async
+**
+
+[slide style="background-image:url('/img/bg2.png')"]
+
+# async函数 {:&.flexbox.vleft}
+
 * ES2017 标准引入了 async，使得异步操作变得更加方便
 * Generator 函数的语法糖
-
-* 更多详情，请看阮一峰老师博客：http://es6.ruanyifeng.com/#docs/async
 
 [slide style="background-image:url('/img/bg2.png')"]
 ## 生成器
@@ -55,5 +92,6 @@ function* helloWorldGenerator() {
 var hw = helloWorldGenerator();
 ```
 
-[slide style="background-image:url('/img/bg2.png')"]
+[slide style="background-image:url('/img/bg2.png')" data-transition="horizontal3d"]
 ## 谢谢大家～_～
+更多详情，请看阮一峰老师博客：http://es6.ruanyifeng.com/#docs/async

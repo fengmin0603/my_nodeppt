@@ -1,57 +1,52 @@
-/**
- * 承诺 promise
- * 1. 后面的then注册的函数会覆盖前面注册的
- * 2. 如果resolve之后再注册then,则得不到值
- **/
-
-//这件事情是一个需要延迟处理的事情
-var Defer = function(){
-    var status = 'pending';//初始态
-    var value;//异步操作的最终的值
-    var callbacks = [];//异步操作成功后的回调
-    return {
-        //当调用resolve的时候就表示成功了
-        //异步操作完成之后调用，表示操作成功了
-        resolve:function(_value){
-            value = _value;
-            status = 'resolve';
-            callbacks.forEach(function(callback){
-                callback(value);
-            });
-            callbacks = undefined;
-        },
-        reject:function(){
-
-        },
-        //就是承诺的对象,它会返回给客户端
-        promise:{
-            then:function(_callback_){
-                if(callbacks){
-                    callbacks.push(_callback_);
-                }else{
-                    _callback_(value);
+let url = "http://ext-api.info.iii-space.com/api/login_fz"
+let ajaxPromise = () => {
+    return new Promise(function (resolve, reject) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('post', url + "?workcode=068108", true);
+        xhr.send(null);
+        xhr.onReadyStatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    resolve(xhr.responseText);
+                } else {
+                    reject(xhr.responseText)
                 }
-            },
-            catch:function(){
-
             }
         }
-    }
+    })
 }
 
-var defer = Defer();
-var fs = require('fs');
-fs.readFile('1.txt','utf8',function(err,data){
-    //defer.resolve(data);//读取文件完成后调用resolve把状态改为成功
-    defer.reject(err);
+ajaxPromise()
+    .then(function (value) {
+        console.log(value);
+    })
+    .catch(function (err) {
+        console.error(err)
+    })
+
+console.time('all')
+console.time('race')
+let promise1 = new Promise((resolve,reject)=>{
+    setTimeout(resolve,1000,'success1')
+})
+let promise2 = new Promise((resolve,reject)=>{
+    window.setTimeout(resolve,1000,'success12')
+})
+let promise3 = new Promise((resolve,reject)=>{
+    window.setTimeout(resolve,5000,'success3')
 })
 
-var promise = defer.promise;
-//defer给你一个承诺，当异步操作完成之后我会调用你传给我回调函数
-promise.then(function(data){
-    console.log(1,data);
-});
-//当出错的时候进行的回调
-promise.catch(function(errr){
-    console.log(err);
-});
+
+Promise.race([promise1, promise2, promise3]).then((value)=>{
+    console.log(value)
+    console.timeEnd('race')
+}).catch((err)=>{
+    console.error(err)
+})
+
+Promise.all([promise1, promise2, promise3]).then((value)=>{
+    console.log(value)
+    console.timeEnd('all')
+}).catch((err)=>{
+    console.error(err)
+})
