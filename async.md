@@ -69,19 +69,58 @@ if(xmlHttp.readyState === 4){
  promise并不是处理异步最好的方法，比如回调金字塔的问题并没有解决，只是看起来更清晰了。解决异步最好的方法是async
 **
 
+
+[slide style="background-image:url('/img/bg2.png')"]
+# 生成器 {:&.flexbox.vleft}
+* Generator 函数是 ES6 提供的一种异步编程解决方案
+    * 协程coroutine（多个线程互相协作，完成异步任务）
+* 是一个状态机，封装了多个内部状态
+* 两个明显特点：一是，function关键字与函数名之间有一个星号；二是，函数体内部使用yield表达式，定义不同的内部状态
+```javascript
+const gen = function* () {
+    yield '大家好';
+    yield '第二个next执行才会看到我呀';
+    return '第三个next执行，状态结束';
+};
+var result = gen();
+result.next();// { value: '大家好', done: false }
+result.next();// { value: '第二个next执行才会看到我呀', done: false }
+result.next();// { value: '第三个next执行，状态结束', done: true }
+```
+
+[slide style="background-image:url('/img/bg2.png')"]
+# trunk函数 {:&.flexbox.vleft}
+Thunk 函数是自动执行 Generator 函数的一种方法。
+* 在js中，trunk函数是指，把多参数函数替换成一个只接受回调函数作为参数的单参数函数。
+
+```javascript
+// 正常版本的readFile（多参数版本）
+fs.readFile(fileName, callback);
+
+// Thunk版本的readFile（单参数版本）
+var Thunk = function (fileName) {
+  return function (callback) {
+    return fs.readFile(fileName, callback);
+  };
+};
+
+var readFileThunk = Thunk(fileName);
+readFileThunk(callback);
+```
+
 [slide style="background-image:url('/img/bg2.png')"]
 
 # async函数 {:&.flexbox.vleft}
 
 * ES2017 标准引入了 async，使得异步操作变得更加方便
 * Generator 函数的语法糖
+    * async函数就是将 Generator 函数的星号（*）替换成async，将yield替换成await
+* async函数对 Generator 函数的改进
+    * async函数自带执行器
+    * async函数的返回值是 Promise 对象,可以用then方法指定下一步的操作,await命令就是内部then命令的语法糖
+* 难点是错误处理机制。
 
-[slide style="background-image:url('/img/bg2.png')"]
-## 生成器
-* Generator 函数是 ES6 提供的一种异步编程解决方案
-* 是一个状态机，封装了多个内部状态
-* 两个明显特点：一是，function关键字与函数名之间有一个星号；二是，函数体内部使用yield表达式，定义不同的内部状态
-* 协程coroutine（多个线程互相协作，完成异步任务）
+
 
 [slide style="background-image:url('/img/bg2.png')" data-transition="horizontal3d"]
 ## 谢谢大家～_～
