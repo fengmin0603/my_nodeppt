@@ -1,6 +1,5 @@
 const axios = require('axios')
 
-/*
 const asyncLogin = async function(url){
     return await axios({
         method: 'post',
@@ -13,7 +12,7 @@ let url = "http://ext-api.info.iii-space.com/api/login_fz"
 let result = asyncLogin(url+"?workcode=068108")
 result.then(function(data){
     console.log('data:',data.data);
-})*/
+})
 
 /*async function f() {
     throw new Error('出错了');

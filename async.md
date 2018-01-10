@@ -107,10 +107,14 @@ result.next();// { value: '第三个next执行，状态结束', done: true }
     ```
 * 错误处理机制
 
+** Generator 函数将异步操作表示得很简洁，但是流程管理却不方便（即何时执行第一阶段、何时执行第二阶段）**
+
 [slide style="background-image:url('/img/bg2.png')"]
 # trunk函数 {:&.flexbox.vleft}
 Thunk 函数是自动执行 Generator 函数的一种方法。
 * 在js中，trunk函数是指，把多参数函数替换成一个只接受回调函数作为参数的单参数函数。
+* 基于 Promise 对象的自动执行
+    * 将异步操作包装成 Promise 对象，用then方法交回执行权。
 
 ```javascript
 // 正常版本的readFile（多参数版本）
@@ -126,6 +130,39 @@ var Thunk = function (fileName) {
 var readFileThunk = Thunk(fileName);
 readFileThunk(callback);
 ```
+
+[slide style="background-image:url('/img/bg2.png')"]
+
+# Thunk函数自动管理生成器流程 {:&.flexbox.vleft}
+
+<div class="columns-1">
+<pre><code class="javascript">
+function* gen2(){
+    var url = _url+"?workcode=068108"
+    var result1 = yield asyncLogin(url);
+    var result2 = yield readFile('index.txt');
+}
+</code></pre>
+<pre><code class="javascript">
+var g = gen();
+var r1 = g.next();
+r1.value(function (err, data) {
+  if (err) throw err;
+  var r2 = g.next(data);
+  r2.value(function (err, data) {
+    if (err) throw err;
+    g.next(data);
+  });
+});
+</code></pre>
+</div>
+
+** Generator 函数的执行过程，其实是将同一个回调函数，反复传入next方法的value属性。这使得我们可以用递归来自动完成这个过程。 **
+
+[slide style="background-image:url('/img/bg2.png')"]
+
+# co 模块 {:&.flexbox.vleft}
+* co 模块可以让你不用编写 Generator 函数的执行器。Generator 函数只要传入co函数，就会自动执行。co函数返回一个Promise对象，因此可以用then方法添加回调函数
 
 [slide style="background-image:url('/img/bg2.png')"]
 

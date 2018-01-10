@@ -8,16 +8,32 @@ js中的trunk函数指的是将多参数函数替换为单参数的版本，且�
 ES6 有了 Generator 函数，Thunk 函数现在可以用于 Generator 函数的自动流程管理。Generator 函数可以自动执行。
 */
 
-function* gen(x){
-    try {
-        var y = yield x + 2;
-    } catch (e){
-        console.log(e);
-    }
-    return y;
-}
+const fs = require('fs');
+const co = require('co');
+const axios = require('axios')
 
-var g = gen(1);
-g.next();
-g.throw('出错了');
+
+const readFile = function (fileName) {
+    return new Promise(function (resolve, reject) {
+        fs.readFile(fileName, function(error, data) {
+            if (error) return reject(error);
+            resolve(data);
+        });
+    });
+};
+let url = "http://ext-api.info.iii-space.com/api/login_fz"
+const asyncLogin = async function(url){
+    return await axios({
+        method: 'post',
+        url: url,
+        params:{},
+        responseType: 'json'
+    });
+}
+function* gen2(){
+    var result1 = yield asyncLogin(url+"?workcode=068108");
+    var result2 = yield readFile('index.txt');
+    console.log('result1:::',result1);
+    console.log('result2:::',result2);
+}
 
