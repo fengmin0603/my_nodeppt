@@ -1,28 +1,4 @@
-let url = "http://ext-api.info.iii-space.com/api/login_fz"
-let ajaxPromise = () => {
-    return new Promise(function (resolve, reject) {
-        let xhr = new XMLHttpRequest();
-        xhr.open('post', url + "?workcode=068108", true);
-        xhr.send(null);
-        xhr.onReadyStatechange = function () {
-            if (xhr.readyState === 4) {
-                if (xhr.status === 200) {
-                    resolve(xhr.responseText);
-                } else {
-                    reject(xhr.responseText)
-                }
-            }
-        }
-    })
-}
 
-ajaxPromise()
-    .then(function (value) {
-        console.log(value);
-    })
-    .catch(function (err) {
-        console.error(err)
-    })
 
 console.time('all')
 console.time('race')

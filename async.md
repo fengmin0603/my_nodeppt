@@ -89,6 +89,25 @@ result.next();// { value: '第三个next执行，状态结束', done: true }
 ```
 
 [slide style="background-image:url('/img/bg2.png')"]
+# 生成器的异步应用 {:&.flexbox.vleft}
+* Generator 函数可以暂停执行和恢复执行
+    * yield表达式
+* 函数体内外的数据交换
+    * next返回值的 value 属性，是 Generator 函数向外输出数据
+    * next方法还可以接受参数，向 Generator 函数体内输入数据。
+    ```javascript
+    function* gen(x){
+      var y = yield x + 2;
+      return y;
+    }
+
+    var g = gen(1);
+    g.next() // { value: 3, done: false }
+    g.next(2) // { value: 2, done: true }
+    ```
+* 错误处理机制
+
+[slide style="background-image:url('/img/bg2.png')"]
 # trunk函数 {:&.flexbox.vleft}
 Thunk 函数是自动执行 Generator 函数的一种方法。
 * 在js中，trunk函数是指，把多参数函数替换成一个只接受回调函数作为参数的单参数函数。
@@ -117,11 +136,38 @@ readFileThunk(callback);
     * async函数就是将 Generator 函数的星号（*）替换成async，将yield替换成await
 * async函数对 Generator 函数的改进
     * async函数自带执行器
-    * async函数的返回值是 Promise 对象,可以用then方法指定下一步的操作,await命令就是内部then命令的语法糖
+    * async函数的返回值是 Promise 对象,可以用then方法指定下一步的操作
 * 难点是错误处理机制。
 
+[slide style="background-image:url('/img/bg2.png')"]
+
+# await {:&.flexbox.vleft}
+正常情况下，await命令后面是一个 Promise 对象。如果不是，会被转成一个立即resolve的 Promise 对象。
+* 只要一个await语句后面的 Promise 变为reject，那么整个async函数都会中断执行
+    * 这时可以将第一个await放在try...catch结构里面，这样不管这个异步操作是否成功，第二个await都会执行。
+-----
+```javascript
+async function f() {
+  await Promise.reject('出错了');
+  await Promise.resolve('hello world'); // 不会执行
+}
+```
+-----
+```javascript
+async function f() {
+  try {
+    await Promise.reject('出错了');
+  } catch(e) {
+  }
+  return await Promise.resolve('hello world');
+}
+
+f()
+.then(v => console.log(v))
+// hello world
+```
 
 
-[slide style="background-image:url('/img/bg2.png')" data-transition="horizontal3d"]
+[slide style="background-image:url('/img/bg1.png')" data-transition="horizontal3d"]
 ## 谢谢大家～_～
 更多详情，请看阮一峰老师博客：http://es6.ruanyifeng.com/#docs/async
