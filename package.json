@@ -4,6 +4,7 @@
   "description": "DOM规范是运行在浏览器上的规范，比如navigator,只在dom上有，在node上没有；而ECMAScript规范，不仅在浏览器中可以使用，也可以在node.js中使用。",
   "dependencies": {
     "axios": "^0.17.1",
-    "co": "^4.6.0"
+    "co": "^4.6.0",
+    "thunkify": "^2.1.2"
   }
 }

@@ -10,8 +10,9 @@ const asyncLogin = async function(url){
 }
 let url = "http://ext-api.info.iii-space.com/api/login_fz"
 let result = asyncLogin(url+"?workcode=068108")
+console.log('result=',result);
 result.then(function(data){
-    console.log('data:',data.data);
+    console.log('data:',data);
 })
 
 /*async function f() {
@@ -23,8 +24,8 @@ f().then(
     e => console.log(e)
 )*/
 
-async function f() {
+/*async function f() {
     return await Promise.reject('出错了');;
 }
 
-f().then(v => console.log(v)).catch(e => console.log(e))
+f().then(v => console.log(v)).catch(e => console.log(e))*/

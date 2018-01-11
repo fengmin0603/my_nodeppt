@@ -30,10 +30,19 @@ const asyncLogin = async function(url){
         responseType: 'json'
     });
 }
-function* gen2(){
-    var result1 = yield asyncLogin(url+"?workcode=068108");
+function* gen(){
+    url = url+"?workcode=068108"
+    var result1 = yield asyncLogin(url);
     var result2 = yield readFile('index.txt');
-    console.log('result1:::',result1);
-    console.log('result2:::',result2);
 }
+var g = gen();
+var r1 = g.next();
+r1.value(function (err, data) {
+    if (err) throw err;
+    var r2 = g.next(data);
+    r2.value(function (err, data) {
+        if (err) throw err;
+        g.next(data);
+    });
+});
 
